@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.font-gothic {
+    font-family: "Century Gothic", sans-serif;
+    font-weight: 700;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.font-calibri {
+    font-family: "Calibri", sans-serif;
+    font-weight: 300;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@theme {
+    /* Cores */
+    --color-black: #000;
+    --color-white: #fff;
+    --color-gray: #4B4B4B;
+    --color-gray-light: rgba(75,75,75,0.3);
+    --color-primary: #0183FF;
+    --color-secondary: #FF00E4;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    /* Breakpoints (rem é recomendado) */
+    --breakpoint-sm: 40rem;  /* 640px */
+    --breakpoint-md: 48rem;  /* 768px */
+    --breakpoint-lg: 64rem;  /* 1024px */
+    --breakpoint-xl: 80rem;  /* 1280px */
+    --breakpoint-2xl: 96rem; /* 1536px */
+
+    /* Espaçamento extra (gera p-13, px-15, gap-18, etc.) */
+    --spacing-13: 3.25rem;
+    --spacing-15: 3.75rem;
+    --spacing-18: 4.5rem;
+
+    /* Raios de borda (gera rounded-xl, rounded-2xl, ...) */
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+
+    /* Tipografia */
+    /* Famílias de fonte (font-sans, font-mono, etc.) */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* Tamanhos de texto + line-height emparelhado (text-base, text-2xl, ...) */
+    --text-base: 1rem;
+    --text-base--line-height: 1.5rem;
+
+    --text-lg: 1.125rem;
+    --text-lg--line-height: 1.75rem;
+
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: 2rem;
+
+    /* Sombras (gera shadow-card, etc.) */
+    --shadow-card: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
