@@ -15,6 +15,7 @@
     --color-black: #000;
     --color-white: #fff;
     --color-gray: #4B4B4B;
+    --color-gray-light: rgba(75,75,75,0.3);
     --color-primary: #0183FF;
     --color-secondary: #FF00E4;
 
