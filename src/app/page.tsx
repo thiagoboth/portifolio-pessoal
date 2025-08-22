@@ -1,10 +1,11 @@
-import TopNav from "@/components/TopNav";
+import { TopNav } from '@/components/TopNav';
+import { Home } from '@/components/Home';
 
-export default function Home() {
+export default function Page() {
   return (
-      <div>
-          <TopNav />
-      </div>
-
+    <>
+      <TopNav />
+      <Home />
+    </>
   );
 }
