@@ -1,11 +1,28 @@
 'use client';
 import Image from 'next/image';
 import { MenuIcon } from '@/components/icons/menu-icon';
+import { LeftMenu } from '@/components/elements/left-menu';
+import { useState } from 'react';
+import { text } from 'node:stream/consumers';
+
+type NavItem = {
+  href: '#' | '#sobre-mim' | '#projetos' | '#contato' | undefined;
+  text: 'início' | 'sobre mim' | 'projetos' | 'contato' | undefined;
+};
+
+const navItems: NavItem[] = [
+  { href: '#', text: 'início' },
+  { href: '#sobre-mim', text: 'sobre mim' },
+  { href: '#projetos', text: 'projetos' },
+  { href: '#contato', text: 'contato' },
+];
 
 export function TopNav() {
+  const [isNavItemSelected, setIsNavItemSelected] = useState<NavItem['href']>(undefined);
+
   return (
-    <nav className="sticky top-0 z-50 border-b border-gray/20 bg-white/80 flex justify-between items-center p-2">
-      <div className={'flex items-center'}>
+    <nav className="w-full sticky top-0 z-50 flex justify-between items-center p-2">
+      <div className={'flex items-center lg:hidden'}>
         <Image
           src="/logo.svg"
           alt="Logo"
@@ -20,27 +37,30 @@ export function TopNav() {
         </div>
       </div>
 
-      <div className={'flex items-center gap-1 bg-red cursor-pointer group'}>
+      <div className={'flex items-center gap-1 bg-red cursor-pointer group lg:hidden'}>
         <p className="font-calibri text-lg text-gray group-active:text-gray-light transition-colors">
           Menu
         </p>
         <MenuIcon />
       </div>
 
-      <p
-        className="
-              font-calibri
-              text-2xl
-              text-[red]
-              sm:text-[#A52A2A] sm:text-sm
-              md:text-[#0183FF]
-              lg:text-[#FF00E4]
-              xl:text-[green]
-              2xl:text-[purple]
-            "
-      >
-        texto teste
-      </p>
+      <div className={'hidden lg:flex justify-center items-center w-full mt-4'}>
+        <ul className="flex gap-24">
+          {navItems.map(item => (
+            <li key={item.text}>
+              <a
+                href={item.href}
+                className={
+                  isNavItemSelected === item.href ? 'underline font-bold underline-offset-4' : ''
+                }
+                onClick={() => setIsNavItemSelected(item.href)}
+              >
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }
